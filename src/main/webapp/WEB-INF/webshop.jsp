@@ -14,6 +14,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
               crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Raleway|Yantramanav" rel="stylesheet">
+        <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />"/>
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Raleway|Yantramanav" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" defer
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                 crossorigin="anonymous"></script>
@@ -25,9 +28,18 @@
                 crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1 class="display-2 text-dark text-center">Web Shop</h1>
-        <div class="container">
-            <table class="table">
+        <nav class="navbar navbar-dark bg-dark d-flex justify-content-end font">
+            <form class="form-inline align-self-center my-2">
+                <a href="${pageContext.request.contextPath}/shoppingcart" class="btn btn-outline-light font">
+                    Display Shopping Cart
+                </a>
+            </form>
+        </nav>
+        <div class="container mt-4 font">
+            <h1 class="display-2 text-dark text-center font">Web Shop</h1>
+        </div>
+        <div class="container font">
+            <table class="table font">
                 <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
@@ -45,10 +57,12 @@
                             <td class="d-flex justify-content-center">
                                 <form method="post" action="${pageContext.request.contextPath}/webshop">
                                     <input type="hidden" name="id" value="${item.getId()}">
+                                    <input type="hidden" name="action" value="add">
                                     <input type="submit" class="btn btn-success mr-2" value="Add">
                                 </form>
-                                <form method="" action="${pageContext.request.contextPath}/webshop">
+                                <form method="post" action="${pageContext.request.contextPath}/webshop">
                                     <input type="hidden" name="id" value="${item.getId()}">
+                                    <input type="hidden" name="action" value="remove">
                                     <input type="submit" class="btn btn-outline-dark ml-2" value="Remove">
                                 </form>
                             </td>
